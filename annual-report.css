@@ -1,0 +1,165 @@
+/* Annual report page specific styles */
+
+.annual-hero {
+  position: relative;
+  padding: 172px 0 62px;
+  background: var(--cream);
+  overflow: hidden;
+}
+
+.annual-hero::before,
+.annual-hero::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: .7;
+}
+
+.annual-hero::before {
+  width: 340px;
+  height: 340px;
+  right: -110px;
+  top: 80px;
+  background: var(--soft-green);
+}
+
+.annual-hero::after {
+  width: 220px;
+  height: 220px;
+  left: -80px;
+  bottom: -90px;
+  background: rgba(34, 127, 185, .08);
+}
+
+.annual-hero-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 880px;
+}
+
+.annual-actions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.annual-preview-section {
+  padding: 34px 0 108px;
+  background: linear-gradient(to bottom, var(--cream) 0%, var(--soft-green) 100%);
+}
+
+.annual-preview-card {
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  background: #fff;
+  border: 0;
+}
+
+.annual-preview-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+  padding: 22px 24px;
+  background: #fff;
+}
+
+.annual-preview-header h2 {
+  margin: 0 0 4px;
+  font-family: var(--body-font);
+  font-size: 1.18rem;
+  font-weight: 900;
+  letter-spacing: 0;
+  color: var(--ink);
+}
+
+.annual-preview-header p {
+  margin: 0;
+  color: var(--muted);
+  font-size: .94rem;
+  word-break: break-word;
+}
+
+.pdf-frame-wrap {
+  background: var(--soft-green);
+  padding: 18px;
+}
+
+.pdf-frame {
+  width: 100%;
+  height: min(78vh, 900px);
+  min-height: 620px;
+  display: block;
+  border: 0;
+  border-radius: 24px;
+  background: #fff;
+  overflow: hidden;
+}
+
+.pdf-fallback {
+  min-height: 560px;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 12px;
+  text-align: center;
+  padding: 42px;
+  background: #fff;
+  border-radius: 24px;
+}
+
+.pdf-fallback i {
+  width: 70px;
+  height: 70px;
+  display: grid;
+  place-items: center;
+  border-radius: 22px;
+  background: rgba(232, 35, 42, .08);
+  color: var(--brand-red);
+  font-size: 2.2rem;
+}
+
+.pdf-fallback h3 {
+  margin: 6px 0 0;
+  font-family: var(--body-font);
+  font-size: 1.35rem;
+  font-weight: 900;
+  letter-spacing: 0;
+}
+
+.pdf-fallback p {
+  max-width: 520px;
+  margin: 0 auto 8px;
+}
+
+@media (max-width: 767.98px) {
+  .annual-hero {
+    padding: 132px 0 46px;
+  }
+
+  .annual-preview-section {
+    padding: 24px 0 78px;
+  }
+
+  .annual-preview-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .annual-preview-header .btn {
+    width: 100%;
+  }
+
+  .pdf-frame-wrap {
+    padding: 10px;
+  }
+
+  .pdf-frame {
+    min-height: 540px;
+    height: 70vh;
+    border-radius: 18px;
+  }
+}

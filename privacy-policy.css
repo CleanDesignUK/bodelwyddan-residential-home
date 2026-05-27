@@ -1,0 +1,246 @@
+/* Privacy Policy page styles */
+
+.legal-header {
+  background: rgba(247, 251, 244, .86);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 16px 50px rgba(16, 21, 33, .08);
+}
+
+.legal-header .nav-link {
+  color: var(--ink);
+}
+
+.legal-header .nav-link:hover,
+.legal-header .nav-link.active {
+  color: var(--deep-green);
+  background: var(--soft-green);
+}
+
+.legal-header .nav-menu-wrap {
+  background: rgba(255, 255, 255, .88);
+  border: 0;
+}
+
+.legal-hero {
+  position: relative;
+  overflow: hidden;
+  padding: 180px 0 88px;
+  background:
+    radial-gradient(circle at 12% 12%, rgba(86, 179, 63, .18), transparent 32%),
+    radial-gradient(circle at 88% 4%, rgba(34, 127, 185, .12), transparent 30%),
+    var(--cream);
+}
+
+.legal-hero::after {
+  content: "";
+  position: absolute;
+  right: -90px;
+  bottom: -130px;
+  width: 360px;
+  height: 360px;
+  border-radius: 50%;
+  background: var(--soft-green);
+  opacity: .72;
+  pointer-events: none;
+}
+
+.legal-hero-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.legal-hero h1 {
+  font-size: clamp(3.4rem, 8vw, 6.8rem);
+  margin: 0 0 18px;
+}
+
+.legal-hero p {
+  max-width: 760px;
+  margin: 0 auto;
+  font-size: 1.12rem;
+}
+
+.legal-quick-contact {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 26px;
+}
+
+.legal-quick-contact a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: .8rem 1.08rem;
+  border-radius: 999px;
+  background: #fff;
+  color: var(--deep-green);
+  font-weight: 900;
+  box-shadow: 0 14px 36px rgba(16, 21, 33, .08);
+}
+
+.legal-quick-contact a:hover {
+  background: var(--deep-green);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.legal-content-section {
+  padding: 92px 0 112px;
+  background: #fff;
+}
+
+.legal-side-card,
+.legal-policy-card {
+  border: 0;
+  border-radius: 30px;
+  background: #fff;
+}
+
+.legal-side-card {
+  position: sticky;
+  top: 112px;
+  padding: 30px;
+  background: var(--soft-green);
+}
+
+.legal-logo {
+  width: 190px;
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 22px;
+}
+
+.legal-side-card h2 {
+  font-size: 2.1rem;
+  margin-bottom: 12px;
+}
+
+.legal-side-card p {
+  margin-bottom: 22px;
+}
+
+.legal-contact-list {
+  display: grid;
+  gap: 12px;
+}
+
+.legal-contact-list div {
+  padding: 16px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, .86);
+}
+
+.legal-contact-list strong,
+.legal-contact-list span,
+.legal-contact-list a {
+  display: block;
+}
+
+.legal-contact-list strong {
+  color: var(--deep-green);
+  font-size: .78rem;
+  text-transform: uppercase;
+  letter-spacing: .11em;
+  margin-bottom: 4px;
+}
+
+.legal-contact-list span,
+.legal-contact-list a {
+  color: var(--ink);
+  font-weight: 900;
+}
+
+.legal-policy-card {
+  padding: clamp(28px, 5vw, 56px);
+  background: #fff;
+}
+
+.legal-updated {
+  display: inline-flex;
+  padding: .55rem .85rem;
+  border-radius: 999px;
+  background: var(--soft-green);
+  color: var(--deep-green);
+  font-weight: 900;
+  margin-bottom: 34px;
+}
+
+.legal-policy-card section {
+  padding: 0 0 30px;
+  margin: 0 0 30px;
+  border-bottom: 1px solid rgba(16, 21, 33, .08);
+}
+
+.legal-policy-card section:last-child {
+  padding-bottom: 0;
+  margin-bottom: 0;
+  border-bottom: 0;
+}
+
+.legal-policy-card h2 {
+  font-family: var(--body-font);
+  font-size: clamp(1.35rem, 2vw, 1.75rem);
+  letter-spacing: 0;
+  line-height: 1.25;
+  margin-bottom: 14px;
+  color: var(--deep-green);
+}
+
+.legal-policy-card p,
+.legal-policy-card li {
+  font-size: 1.03rem;
+}
+
+.legal-list {
+  margin: 0;
+  padding-left: 1.2rem;
+  color: var(--muted);
+}
+
+.legal-list li {
+  margin-bottom: 9px;
+}
+
+@media (max-width: 991.98px) {
+  .legal-hero {
+    padding-top: 150px;
+  }
+
+  .legal-side-card {
+    position: relative;
+    top: auto;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .legal-hero {
+    padding: 132px 0 62px;
+  }
+
+  .legal-hero h1 {
+    font-size: clamp(3rem, 18vw, 4.6rem);
+  }
+
+  .legal-quick-contact {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .legal-quick-contact a {
+    justify-content: center;
+  }
+
+  .legal-content-section {
+    padding: 62px 0 82px;
+  }
+
+  .legal-side-card,
+  .legal-policy-card {
+    border-radius: 24px;
+  }
+}

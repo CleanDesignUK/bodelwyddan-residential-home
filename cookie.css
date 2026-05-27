@@ -1,0 +1,135 @@
+/* Bodelwyddan Residential Care LTD Cookie Banner */
+
+.cookie-banner {
+  position: fixed;
+  left: 50%;
+  bottom: max(22px, env(safe-area-inset-bottom));
+  width: min(520px, calc(100% - 32px));
+  transform: translateX(-50%) translateY(18px);
+  z-index: 99999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 220ms ease, transform 220ms ease;
+  font-family: var(--body-font, "Lato", Arial, sans-serif);
+}
+
+.cookie-banner.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+
+.cookie-banner.is-hiding {
+  opacity: 0;
+  transform: translateX(-50%) translateY(18px);
+}
+
+.cookie-banner__inner {
+  position: relative;
+  overflow: hidden;
+  border-radius: 24px;
+  padding: 24px;
+  background: #2F6B2F;
+  color: #ffffff;
+  box-shadow: 0 26px 80px rgba(16, 21, 33, 0.22);
+}
+
+.cookie-banner__inner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at top left, rgba(86, 179, 63, 0.42), transparent 32%),
+    radial-gradient(circle at bottom right, rgba(34, 127, 185, 0.25), transparent 34%);
+}
+
+.cookie-banner__content {
+  position: relative;
+  z-index: 1;
+}
+
+.cookie-banner__text {
+  margin: 0 0 18px;
+  color: rgba(255, 255, 255, 0.94);
+  font-size: 1rem;
+  line-height: 1.65;
+  font-weight: 700;
+}
+
+.cookie-banner__text a {
+  color: #ede42d;
+  font-weight: 900;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.cookie-banner__text a:hover {
+  color: #ffffff;
+}
+
+.cookie-banner__actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.cookie-banner__button {
+  min-height: 52px;
+  border: 0;
+  border-radius: 12px;
+  padding: 0.8rem 1rem;
+  font: inherit;
+  font-weight: 900;
+  line-height: 1.1;
+  cursor: pointer;
+  transition: transform 180ms ease, background-color 180ms ease, color 180ms ease;
+}
+
+.cookie-banner__button:hover,
+.cookie-banner__button:focus-visible {
+  transform: translateY(-1px);
+  outline: none;
+}
+
+.cookie-banner__button--accept {
+  background: #ede42d;
+  color: #101521;
+}
+
+.cookie-banner__button--accept:hover,
+.cookie-banner__button--accept:focus-visible {
+  background: #ede42d;
+}
+
+.cookie-banner__button--decline {
+  background: #F7FBF4;
+  color: #00528a;
+}
+
+.cookie-banner__button--decline:hover,
+.cookie-banner__button--decline:focus-visible {
+  background: #EAF6E3;
+  color: #2F6B2F;
+}
+
+@media (max-width: 480px) {
+  .cookie-banner {
+    bottom: max(14px, env(safe-area-inset-bottom));
+    width: calc(100% - 24px);
+  }
+
+  .cookie-banner__inner {
+    border-radius: 20px;
+    padding: 20px;
+  }
+
+  .cookie-banner__text {
+    font-size: 0.95rem;
+    line-height: 1.58;
+  }
+
+  .cookie-banner__actions {
+    grid-template-columns: 1fr;
+  }
+}
