@@ -715,3 +715,46 @@ p { color: var(--muted); }
   color: var(--deep-green);
   border-color: rgba(47,107,47,.12);
 }
+
+
+/* Light hero navbar variant
+   Use this on pages where the hero background is pale/white so the shared navbar stays readable.
+   Add class="light-hero-page" to the body. The index page keeps the original transparent/white navbar. */
+.light-hero-page .site-header:not(.is-scrolled) {
+  background: rgba(247, 251, 244, 0.94);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 14px 42px rgba(16, 21, 33, 0.08);
+}
+
+.light-hero-page .site-header:not(.is-scrolled) .navbar-brand {
+  color: var(--ink);
+}
+
+.light-hero-page .site-header:not(.is-scrolled) .brand-text span {
+  color: var(--muted);
+}
+
+.light-hero-page .site-header:not(.is-scrolled) .nav-menu-wrap {
+  background: rgba(255, 255, 255, 0.92);
+  border-color: rgba(47, 107, 47, 0.12);
+  box-shadow: 0 12px 32px rgba(16, 21, 33, 0.06);
+}
+
+.light-hero-page .site-header:not(.is-scrolled) .nav-link {
+  color: var(--ink);
+}
+
+.light-hero-page .site-header:not(.is-scrolled) .nav-link:hover,
+.light-hero-page .site-header:not(.is-scrolled) .nav-link.active {
+  color: var(--deep-green);
+  background: var(--soft-green);
+}
+
+.light-hero-page .site-header:not(.is-scrolled) .navbar-toggler {
+  border-color: rgba(16, 21, 33, 0.16);
+  background: rgba(255, 255, 255, 0.86);
+}
+
+.light-hero-page .site-header:not(.is-scrolled) .nav-phone {
+  box-shadow: 0 16px 36px rgba(47, 107, 47, 0.20);
+}

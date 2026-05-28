@@ -2,11 +2,14 @@
 
 @import url("privacy-policy.css");
 
-.cookie-hero {
-  background:
-    radial-gradient(circle at 12% 12%, rgba(237, 228, 45, .18), transparent 32%),
-    radial-gradient(circle at 88% 6%, rgba(0, 82, 138, .13), transparent 30%),
-    var(--cream);
+.cookie-hero::before {
+  background: var(--soft-yellow);
+  opacity: .78;
+}
+
+.cookie-hero::after {
+  background: var(--soft-navy);
+  opacity: .95;
 }
 
 .cookie-icon-large {
@@ -66,13 +69,13 @@
 
 .cookie-type-card.essential i,
 .cookie-type-card.essential h3 { color: var(--deep-green); }
-.cookie-type-card.analytics { background: rgba(34, 127, 185, .13); }
+.cookie-type-card.analytics { background: var(--soft-blue); }
 .cookie-type-card.analytics i,
 .cookie-type-card.analytics h3 { color: var(--brand-blue); }
-.cookie-type-card.tag { background: rgba(237, 228, 45, .2); }
+.cookie-type-card.tag { background: var(--soft-yellow); }
 .cookie-type-card.tag i,
 .cookie-type-card.tag h3 { color: #7a7400; }
-.cookie-type-card.search { background: rgba(232, 35, 42, .08); }
+.cookie-type-card.search { background: var(--soft-red); }
 .cookie-type-card.search i,
 .cookie-type-card.search h3 { color: var(--brand-red); }
 
@@ -160,7 +163,7 @@
     position: relative;
     border: 0;
     border-bottom: 1px solid rgba(16, 21, 33, .07);
-    padding: 14px 16px 14px 16px;
+    padding: 14px 16px;
     color: var(--muted);
     word-break: break-word;
     overflow-wrap: anywhere;

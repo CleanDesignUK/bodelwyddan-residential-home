@@ -4,26 +4,6 @@
   background: #fff;
 }
 
-.contact-page .site-header:not(.is-scrolled) .nav-menu-wrap {
-  background: rgba(47, 107, 47, .12);
-  border-color: rgba(47, 107, 47, .12);
-}
-
-.contact-page .site-header:not(.is-scrolled) .nav-link {
-  color: var(--ink);
-}
-
-.contact-page .site-header:not(.is-scrolled) .nav-link:hover,
-.contact-page .site-header:not(.is-scrolled) .nav-link.active {
-  color: var(--deep-green);
-  background: rgba(47, 107, 47, .11);
-}
-
-.contact-page .site-header:not(.is-scrolled) .navbar-toggler {
-  border-color: rgba(16, 21, 33, .16);
-  background: rgba(255, 255, 255, .82);
-}
-
 .contact-hero {
   position: relative;
   overflow: hidden;
@@ -683,5 +663,35 @@
   .contact-detail-card,
   .ciw-card {
     padding: 20px;
+  }
+}
+
+
+/* CIW logo image in the contact page CIW card */
+.ciw-logo-media {
+  width: 70px;
+  height: 70px;
+  display: grid;
+  place-items: center;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, .96);
+  overflow: hidden;
+  padding: 8px;
+  flex: 0 0 auto;
+}
+
+.ciw-logo-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+@media (max-width: 767.98px) {
+  .ciw-logo-media {
+    width: 58px;
+    height: 58px;
+    border-radius: 17px;
+    padding: 7px;
   }
 }

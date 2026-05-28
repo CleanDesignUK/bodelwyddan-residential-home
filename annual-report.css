@@ -48,7 +48,7 @@
 
 .annual-preview-section {
   padding: 34px 0 108px;
-  background: linear-gradient(to bottom, var(--cream) 0%, var(--soft-green) 100%);
+  background: var(--soft-green);
 }
 
 .annual-preview-card {
