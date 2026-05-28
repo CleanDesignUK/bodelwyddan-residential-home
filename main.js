@@ -127,25 +127,7 @@
     });
   };
 
-  const initCookieNotice = () => {
-    if (localStorage.getItem("bodelwyddanCookieConsent") === "accepted") return;
 
-    const notice = document.createElement("div");
-    notice.className = "cookie-consent";
-    notice.innerHTML = `
-      <strong>Cookie notice</strong>
-      <p>We use essential cookies to help this website work. Analytics or extra scripts can be added later after consent setup.</p>
-      <div class="d-flex gap-2 flex-wrap">
-        <button class="btn btn-brand btn-sm" type="button" data-cookie-accept>Accept</button>
-        <a class="btn btn-outline-brand btn-sm" href="cookie-policy.html">Cookie Policy</a>
-      </div>
-    `;
-    document.body.appendChild(notice);
-    notice.querySelector("[data-cookie-accept]").addEventListener("click", () => {
-      localStorage.setItem("bodelwyddanCookieConsent", "accepted");
-      notice.remove();
-    });
-  };
 
   document.addEventListener("DOMContentLoaded", () => {
     setActiveNav();
@@ -153,7 +135,6 @@
     initBackToTop();
     initWeb3Forms();
     initMobileCardArrows();
-    initCookieNotice();
     handleHeaderScroll();
     handleBackToTop();
   });
