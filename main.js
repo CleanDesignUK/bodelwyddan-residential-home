@@ -43,7 +43,7 @@
         const originalButtonText = submitButton ? submitButton.innerHTML : "";
         const accessKey = form.querySelector("input[name='access_key']")?.value;
 
-        if (!accessKey || accessKey === "YOUR_WEB3FORMS_ACCESS_KEY") {
+        if (!accessKey || accessKey === "062a92aa-77e6-4094-a59a-d7518478a2f2") {
           Swal.fire({
             icon: "warning",
             title: "Web3Forms key needed",
