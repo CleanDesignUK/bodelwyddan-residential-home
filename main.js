@@ -3,11 +3,15 @@
 
   const setActiveNav = () => {
     const currentPage = window.location.pathname.split("/").pop() || "index.html";
+
     document.querySelectorAll(".nav-link").forEach((link) => {
       const href = link.getAttribute("href");
       if (!href) return;
+
       const linkPage = href.split("#")[0];
-      if (linkPage === currentPage) link.classList.add("active");
+      if (linkPage === currentPage) {
+        link.classList.add("active");
+      }
     });
   };
 
@@ -20,34 +24,40 @@
   const handleHeaderScroll = () => {
     const header = document.querySelector(".site-header");
     if (!header) return;
+
     header.classList.toggle("is-scrolled", window.scrollY > 12);
   };
 
   const handleBackToTop = () => {
     const button = document.querySelector(".back-to-top");
     if (!button) return;
+
     button.classList.toggle("is-visible", window.scrollY > 450);
   };
 
   const initBackToTop = () => {
     const button = document.querySelector(".back-to-top");
     if (!button) return;
-    button.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+
+    button.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
   };
 
   const initWeb3Forms = () => {
     document.querySelectorAll("form[data-web3forms]").forEach((form) => {
       form.addEventListener("submit", async (event) => {
         event.preventDefault();
+
         const submitButton = form.querySelector("button[type='submit']");
         const originalButtonText = submitButton ? submitButton.innerHTML : "";
-        const accessKey = form.querySelector("input[name='access_key']")?.value;
+        const accessKey = form.querySelector("input[name='access_key']")?.value?.trim();
 
-        if (!accessKey || accessKey === "062a92aa-77e6-4094-a59a-d7518478a2f2") {
+        if (!accessKey || accessKey === "YOUR_WEB3FORMS_ACCESS_KEY") {
           Swal.fire({
             icon: "warning",
             title: "Web3Forms key needed",
-            text: "Please replace YOUR_WEB3FORMS_ACCESS_KEY with the client’s Web3Forms access key before going live.",
+            text: "Please add the Web3Forms access key before going live.",
             confirmButtonColor: "#2F6B2F"
           });
           return;
@@ -59,35 +69,36 @@
         }
 
         const formData = new FormData(form);
-        const payload = Object.fromEntries(formData.entries());
 
         try {
           const response = await fetch("https://api.web3forms.com/submit", {
             method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-              Accept: "application/json"
-            },
-            body: JSON.stringify(payload)
+            body: formData
           });
+
           const result = await response.json();
 
-          if (result.success) {
+          console.log("Web3Forms response:", result);
+
+          if (response.ok && result.success) {
             Swal.fire({
               icon: "success",
               title: "Thank you",
               text: "Your enquiry has been sent. We will get back to you as soon as possible.",
               confirmButtonColor: "#2F6B2F"
             });
+
             form.reset();
           } else {
             throw new Error(result.message || "Form submission failed");
           }
         } catch (error) {
+          console.error("Web3Forms error:", error);
+
           Swal.fire({
             icon: "error",
             title: "Message not sent",
-            text: "Please call 01407 811289 or email bodelwyddan1@btconnect.com.",
+            text: error.message || "Please call 01407 811289 or email bodelwyddan1@btconnect.com.",
             confirmButtonColor: "#2F6B2F"
           });
         } finally {
@@ -100,34 +111,47 @@
     });
   };
 
-
   const initMobileCardArrows = () => {
-    document.querySelectorAll(".mobile-card-scroll").forEach((scroller, index) => {
+    document.querySelectorAll(".mobile-card-scroll").forEach((scroller) => {
       if (scroller.dataset.arrowReady === "true") return;
       scroller.dataset.arrowReady = "true";
 
       const controls = document.createElement("div");
       controls.className = "mobile-scroll-controls";
       controls.setAttribute("aria-label", "Card navigation");
+
       controls.innerHTML = `
-        <button class="scroll-arrow" type="button" aria-label="Previous card" data-scroll-prev><i class="bi bi-chevron-left"></i></button>
-        <button class="scroll-arrow" type="button" aria-label="Next card" data-scroll-next><i class="bi bi-chevron-right"></i></button>
+        <button class="scroll-arrow" type="button" aria-label="Previous card" data-scroll-prev>
+          <i class="bi bi-chevron-left"></i>
+        </button>
+        <button class="scroll-arrow" type="button" aria-label="Next card" data-scroll-next>
+          <i class="bi bi-chevron-right"></i>
+        </button>
       `;
 
       scroller.parentNode.insertBefore(controls, scroller);
 
       const scrollByCard = (direction) => {
         const firstCard = scroller.querySelector(":scope > *");
-        const amount = firstCard ? firstCard.getBoundingClientRect().width + 14 : scroller.clientWidth * 0.82;
-        scroller.scrollBy({ left: amount * direction, behavior: "smooth" });
+        const amount = firstCard
+          ? firstCard.getBoundingClientRect().width + 14
+          : scroller.clientWidth * 0.82;
+
+        scroller.scrollBy({
+          left: amount * direction,
+          behavior: "smooth"
+        });
       };
 
-      controls.querySelector("[data-scroll-prev]").addEventListener("click", () => scrollByCard(-1));
-      controls.querySelector("[data-scroll-next]").addEventListener("click", () => scrollByCard(1));
+      controls.querySelector("[data-scroll-prev]").addEventListener("click", () => {
+        scrollByCard(-1);
+      });
+
+      controls.querySelector("[data-scroll-next]").addEventListener("click", () => {
+        scrollByCard(1);
+      });
     });
   };
-
-
 
   document.addEventListener("DOMContentLoaded", () => {
     setActiveNav();
@@ -139,8 +163,12 @@
     handleBackToTop();
   });
 
-  window.addEventListener("scroll", () => {
-    handleHeaderScroll();
-    handleBackToTop();
-  }, { passive: true });
+  window.addEventListener(
+    "scroll",
+    () => {
+      handleHeaderScroll();
+      handleBackToTop();
+    },
+    { passive: true }
+  );
 })();
